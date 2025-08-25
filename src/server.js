@@ -5,8 +5,8 @@ const fastify = Fastify({
   logger: true,
 });
 
-fastify.get("/", (req, res) => {
-  return { message: "Hello world" };
+fastify.get("/", async (request, reply) => {
+  return { hello: "world" };
 });
 
 const start = async () => {
