@@ -5,6 +5,10 @@ const fastify = Fastify({
   logger: true,
 });
 
+fastify.get("/", (req, res) => {
+  return { message: "Hello world" };
+});
+
 const start = async () => {
   try {
     await fastify.listen({ port: config.port });
