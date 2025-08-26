@@ -2,6 +2,7 @@ import Fastify from "fastify";
 import cors from "@fastify/cors";
 import prismaPlugin from "./plugins/prisma.js";
 import projectRoutes from "./routes/projectRoutes.js";
+import workspaceRoutes from "./routes/workspacesRoute.js";
 
 const fastify = Fastify({
   logger: true,
@@ -27,6 +28,7 @@ fastify.route({
     };
   },
 });
+fastify.register(workspaceRoutes, { prefix: "/api" });
 
 const start = async () => {
   try {
