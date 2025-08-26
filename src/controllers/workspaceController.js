@@ -1,23 +1,12 @@
-import { FastifyReply, FastifyRequest } from "fastify";
-import { prisma } from "../utils/prisma";
-
-export const createWorkspace = async (req, reply) => {
-  const { name } = req.body;
-
-  // create workspace
-
-  return reply.code(201).send(workspace);
-};
-
 export const getMyWorkspaces = async (req, reply) => {
-    const {userId} = req.body
-try {
-    const workspaces = await prisma.workspaces.findMany({
-        where: {creatorId: }
-    })
-} catch (error) {
-    
-}
-
-
+  const { userId } = req.query;
+  try {
+    const workspaces = await req.server.prisma.workspace.findMany({
+      where: { creatorId: userId },
+    });
+    reply.code(200).send(workspaces);
+  } catch (error) {
+    req.log.error(error);
+    reply.code(503).send({ error: "Internal server error" });
+  }
 };
