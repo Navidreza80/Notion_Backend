@@ -1,6 +1,7 @@
 import Fastify from "fastify";
 import cors from "@fastify/cors";
 import prismaPlugin from "./plugins/prisma.js";
+import projectRoutes from "./routes/projectRoutes.js";
 
 const fastify = Fastify({
   logger: true,
@@ -8,6 +9,8 @@ const fastify = Fastify({
 
 fastify.register(cors, { origin: "*" });
 fastify.register(prismaPlugin);
+
+fastify.register(projectRoutes, { prefix: "/projects" });
 
 fastify.get("/", async (request, reply) => {
   return { message: "Hello world?" };
@@ -17,10 +20,10 @@ fastify.route({
   method: "GET",
   url: "/users",
   handler: async (request, reply) => {
-    const users = await fastify.prisma.users.findMany();
+    const users = await fastify.prisma.User.findMany(); // توجه: User با حرف بزرگ
     return {
       message: "Ok",
-      users: users,
+      users,
     };
   },
 });
