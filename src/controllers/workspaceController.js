@@ -1,8 +1,8 @@
 export const getMyWorkspaces = async (req, reply) => {
-  const { userId } = req.query;
+  const { id } = req.user;
   try {
     const workspaces = await req.server.prisma.workspace.findMany({
-      where: { creatorId: userId },
+      where: { creatorId: id },
     });
     reply.code(200).send(workspaces);
   } catch (error) {
