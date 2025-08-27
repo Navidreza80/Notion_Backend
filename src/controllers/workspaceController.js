@@ -23,3 +23,18 @@ export const getWorkspaceById = async (req, reply) => {
     reply.code(503).send({ error: "Internal server error" });
   }
 };
+
+export const createWorkspace = async (req, reply) => {
+  const { id } = await req.user;
+  const { name } = await req.body;
+  try {
+    const workspace = await workspaceService.createWorkspace(req.server, {
+      creatorId: id,
+      name,
+    });
+    return reply.send(workspace);
+  } catch (error) {
+    req.log.error(error);
+    reply.code(503).send({ error: "Internal server error" });
+  }
+};
