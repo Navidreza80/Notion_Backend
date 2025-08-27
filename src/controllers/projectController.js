@@ -23,9 +23,8 @@ export const createProject = async (req, reply) => {
 export const getProjects = async (req, reply) => {
   try {
     const projects = await projectService.getProjects(req.server);
-    return reply.send(projects);
+    reply.code(200).send(projects);
   } catch (error) {
-    console.error(error);
     reply.code(500).send({ error: error.message });
   }
 };

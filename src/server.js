@@ -11,7 +11,7 @@ const fastify = Fastify({
 fastify.register(cors, { origin: "*" });
 fastify.register(prismaPlugin);
 
-fastify.register(projectRoutes, { prefix: "/api/projects" });
+fastify.register(projectRoutes, { prefix: "/api" });
 fastify.register(workspaceRoutes, { prefix: "/api" });
 
 const start = async () => {

@@ -164,6 +164,14 @@ exports.Prisma.WorkspaceScalarFieldEnum = {
   creatorId: 'creatorId'
 };
 
+exports.Prisma.ProjectScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  createdAt: 'createdAt',
+  userId: 'userId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -185,7 +193,8 @@ exports.Prisma.ModelName = {
   Session: 'Session',
   User: 'User',
   VerificationToken: 'VerificationToken',
-  Workspace: 'Workspace'
+  Workspace: 'Workspace',
+  Project: 'Project'
 };
 
 /**

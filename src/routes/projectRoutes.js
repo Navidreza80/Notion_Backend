@@ -1,11 +1,11 @@
-import * as projectController from "../controllers/projectController.js";
+import { createProject, getProjects, getProjectById, updateProject, deleteProject } from "../controllers/projectController.js";
 
-async function projectRoutes(fastify, options) {
-  fastify.post("/", projectController.createProject);
-  fastify.get("/", projectController.getProjects);
-  fastify.get("/:id", projectController.getProjectById);
-  fastify.put("/:id", projectController.updateProject);
-  fastify.delete("/:id", projectController.deleteProject);
+async function projectRoutes(fastify,) {
+  fastify.post("/projects", createProject);
+  fastify.get("/projects", getProjects);
+  fastify.get("/projects/:id", getProjectById);
+  fastify.put("/projects/:id", updateProject);
+  fastify.delete("/projects/:id", deleteProject);
 }
 
 export default projectRoutes;
