@@ -11,7 +11,7 @@ const fastify = Fastify({
 fastify.register(cors, { origin: "*" });
 fastify.register(prismaPlugin);
 
-fastify.register(projectRoutes, { prefix: "/projects" });
+fastify.register(projectRoutes, { prefix: "api/projects" });
 
 fastify.get("/", async (request, reply) => {
   return { message: "Hello world?" };
