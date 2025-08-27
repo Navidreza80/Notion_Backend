@@ -1,8 +1,12 @@
-import { getMyWorkspaces } from "../controllers/workspaceController.js";
+import {
+  getMyWorkspaces,
+  getWorkspaceById,
+} from "../controllers/workspaceController.js";
 import { authenticate } from "../middleware/auth.js";
 
 async function workspaceRoutes(fastify) {
   fastify.get("/me/workspaces", { preHandler: authenticate }, getMyWorkspaces);
+  fastify.get("/workspaces/:id", { preHandler: authenticate }, getWorkspaceById);
 }
 
 export default workspaceRoutes;
