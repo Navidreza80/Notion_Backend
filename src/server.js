@@ -11,23 +11,7 @@ const fastify = Fastify({
 fastify.register(cors, { origin: "*" });
 fastify.register(prismaPlugin);
 
-fastify.register(projectRoutes, { prefix: "api/projects" });
-
-fastify.get("/", async (request, reply) => {
-  return { message: "Hello world?" };
-});
-
-fastify.route({
-  method: "GET",
-  url: "/users",
-  handler: async (request, reply) => {
-    const users = await fastify.prisma.User.findMany(); // توجه: User با حرف بزرگ
-    return {
-      message: "Ok",
-      users,
-    };
-  },
-});
+fastify.register(projectRoutes, { prefix: "/api/projects" });
 fastify.register(workspaceRoutes, { prefix: "/api" });
 
 const start = async () => {
