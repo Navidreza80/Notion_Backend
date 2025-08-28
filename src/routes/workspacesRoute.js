@@ -1,5 +1,7 @@
 import {
   createWorkspace,
+  deleteWorkspace,
+  editWorkspace,
   getMyWorkspaces,
   getWorkspaceById,
 } from "../controllers/workspaceController.js";
@@ -13,6 +15,8 @@ async function workspaceRoutes(fastify) {
     getWorkspaceById
   );
   fastify.post("/workspaces", { preHandler: authenticate }, createWorkspace);
+  fastify.put("/workspaces/:id", { preHandler: authenticate }, editWorkspace);
+    fastify.delete("/workspaces/:id", { preHandler: authenticate }, deleteWorkspace);
 }
 
 export default workspaceRoutes;
