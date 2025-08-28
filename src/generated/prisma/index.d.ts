@@ -8651,18 +8651,18 @@ export namespace Prisma {
   }
 
   export type WorkspaceCreateInput = {
-    id: string
+    id?: string
     name: string
     createdAt?: Date | string
-    updatedAt: Date | string
+    updatedAt?: Date | string
     User: UserCreateNestedOneWithoutWorkspaceInput
   }
 
   export type WorkspaceUncheckedCreateInput = {
-    id: string
+    id?: string
     name: string
     createdAt?: Date | string
-    updatedAt: Date | string
+    updatedAt?: Date | string
     creatorId: string
   }
 
@@ -8683,10 +8683,10 @@ export namespace Prisma {
   }
 
   export type WorkspaceCreateManyInput = {
-    id: string
+    id?: string
     name: string
     createdAt?: Date | string
-    updatedAt: Date | string
+    updatedAt?: Date | string
     creatorId: string
   }
 
@@ -9741,17 +9741,17 @@ export namespace Prisma {
   }
 
   export type WorkspaceCreateWithoutUserInput = {
-    id: string
+    id?: string
     name: string
     createdAt?: Date | string
-    updatedAt: Date | string
+    updatedAt?: Date | string
   }
 
   export type WorkspaceUncheckedCreateWithoutUserInput = {
-    id: string
+    id?: string
     name: string
     createdAt?: Date | string
-    updatedAt: Date | string
+    updatedAt?: Date | string
   }
 
   export type WorkspaceCreateOrConnectWithoutUserInput = {
@@ -10026,10 +10026,10 @@ export namespace Prisma {
   }
 
   export type WorkspaceCreateManyUserInput = {
-    id: string
+    id?: string
     name: string
     createdAt?: Date | string
-    updatedAt: Date | string
+    updatedAt?: Date | string
   }
 
   export type AccountUpdateWithoutUserInput = {
