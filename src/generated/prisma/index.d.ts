@@ -8075,7 +8075,6 @@ export namespace Prisma {
   export type PageMinAggregateOutputType = {
     id: string | null
     title: string | null
-    content: string | null
     updatedAt: Date | null
     createdAt: Date | null
     isSubPage: boolean | null
@@ -8086,7 +8085,6 @@ export namespace Prisma {
   export type PageMaxAggregateOutputType = {
     id: string | null
     title: string | null
-    content: string | null
     updatedAt: Date | null
     createdAt: Date | null
     isSubPage: boolean | null
@@ -8110,7 +8108,6 @@ export namespace Prisma {
   export type PageMinAggregateInputType = {
     id?: true
     title?: true
-    content?: true
     updatedAt?: true
     createdAt?: true
     isSubPage?: true
@@ -8121,7 +8118,6 @@ export namespace Prisma {
   export type PageMaxAggregateInputType = {
     id?: true
     title?: true
-    content?: true
     updatedAt?: true
     createdAt?: true
     isSubPage?: true
@@ -8216,7 +8212,7 @@ export namespace Prisma {
   export type PageGroupByOutputType = {
     id: string
     title: string
-    content: string
+    content: JsonValue | null
     updatedAt: Date
     createdAt: Date
     isSubPage: boolean
@@ -8307,7 +8303,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       title: string
-      content: string
+      content: Prisma.JsonValue | null
       updatedAt: Date
       createdAt: Date
       isSubPage: boolean
@@ -8739,7 +8735,7 @@ export namespace Prisma {
   interface PageFieldRefs {
     readonly id: FieldRef<"Page", 'String'>
     readonly title: FieldRef<"Page", 'String'>
-    readonly content: FieldRef<"Page", 'String'>
+    readonly content: FieldRef<"Page", 'Json'>
     readonly updatedAt: FieldRef<"Page", 'DateTime'>
     readonly createdAt: FieldRef<"Page", 'DateTime'>
     readonly isSubPage: FieldRef<"Page", 'Boolean'>
@@ -9266,6 +9262,14 @@ export namespace Prisma {
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+  export const NullableJsonNullValueInput: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull
+  };
+
+  export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
+
+
   export const QueryMode: {
     default: 'default',
     insensitive: 'insensitive'
@@ -9280,6 +9284,15 @@ export namespace Prisma {
   };
 
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  export const JsonNullValueFilter: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull,
+    AnyNull: typeof AnyNull
+  };
+
+  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
   /**
@@ -9340,6 +9353,20 @@ export namespace Prisma {
    * Reference to a field of type 'WorkspaceRole[]'
    */
   export type ListEnumWorkspaceRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WorkspaceRole[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
+   * Reference to a field of type 'QueryMode'
+   */
+  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
 
 
@@ -9747,7 +9774,7 @@ export namespace Prisma {
     NOT?: PageWhereInput | PageWhereInput[]
     id?: StringFilter<"Page"> | string
     title?: StringFilter<"Page"> | string
-    content?: StringFilter<"Page"> | string
+    content?: JsonNullableFilter<"Page">
     updatedAt?: DateTimeFilter<"Page"> | Date | string
     createdAt?: DateTimeFilter<"Page"> | Date | string
     isSubPage?: BoolFilter<"Page"> | boolean
@@ -9759,7 +9786,7 @@ export namespace Prisma {
   export type PageOrderByWithRelationInput = {
     id?: SortOrder
     title?: SortOrder
-    content?: SortOrder
+    content?: SortOrderInput | SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
     isSubPage?: SortOrder
@@ -9774,7 +9801,7 @@ export namespace Prisma {
     OR?: PageWhereInput[]
     NOT?: PageWhereInput | PageWhereInput[]
     title?: StringFilter<"Page"> | string
-    content?: StringFilter<"Page"> | string
+    content?: JsonNullableFilter<"Page">
     updatedAt?: DateTimeFilter<"Page"> | Date | string
     createdAt?: DateTimeFilter<"Page"> | Date | string
     isSubPage?: BoolFilter<"Page"> | boolean
@@ -9786,7 +9813,7 @@ export namespace Prisma {
   export type PageOrderByWithAggregationInput = {
     id?: SortOrder
     title?: SortOrder
-    content?: SortOrder
+    content?: SortOrderInput | SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
     isSubPage?: SortOrder
@@ -9803,7 +9830,7 @@ export namespace Prisma {
     NOT?: PageScalarWhereWithAggregatesInput | PageScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Page"> | string
     title?: StringWithAggregatesFilter<"Page"> | string
-    content?: StringWithAggregatesFilter<"Page"> | string
+    content?: JsonNullableWithAggregatesFilter<"Page">
     updatedAt?: DateTimeWithAggregatesFilter<"Page"> | Date | string
     createdAt?: DateTimeWithAggregatesFilter<"Page"> | Date | string
     isSubPage?: BoolWithAggregatesFilter<"Page"> | boolean
@@ -10204,7 +10231,7 @@ export namespace Prisma {
   export type PageCreateInput = {
     id?: string
     title: string
-    content: string
+    content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: Date | string
     createdAt?: Date | string
     isSubPage: boolean
@@ -10215,7 +10242,7 @@ export namespace Prisma {
   export type PageUncheckedCreateInput = {
     id?: string
     title: string
-    content: string
+    content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: Date | string
     createdAt?: Date | string
     isSubPage: boolean
@@ -10226,7 +10253,7 @@ export namespace Prisma {
   export type PageUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
+    content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isSubPage?: BoolFieldUpdateOperationsInput | boolean
@@ -10237,7 +10264,7 @@ export namespace Prisma {
   export type PageUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
+    content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isSubPage?: BoolFieldUpdateOperationsInput | boolean
@@ -10248,7 +10275,7 @@ export namespace Prisma {
   export type PageCreateManyInput = {
     id?: string
     title: string
-    content: string
+    content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: Date | string
     createdAt?: Date | string
     isSubPage: boolean
@@ -10259,7 +10286,7 @@ export namespace Prisma {
   export type PageUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
+    content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isSubPage?: BoolFieldUpdateOperationsInput | boolean
@@ -10269,7 +10296,7 @@ export namespace Prisma {
   export type PageUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
+    content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isSubPage?: BoolFieldUpdateOperationsInput | boolean
@@ -10678,6 +10705,29 @@ export namespace Prisma {
     _min?: NestedEnumWorkspaceRoleFilter<$PrismaModel>
     _max?: NestedEnumWorkspaceRoleFilter<$PrismaModel>
   }
+  export type JsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
 
   export type BoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
@@ -10698,7 +10748,6 @@ export namespace Prisma {
   export type PageMaxOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
-    content?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
     isSubPage?: SortOrder
@@ -10709,12 +10758,37 @@ export namespace Prisma {
   export type PageMinOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
-    content?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
     isSubPage?: SortOrder
     parentPageId?: SortOrder
     workspaceId?: SortOrder
+  }
+  export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedJsonNullableFilter<$PrismaModel>
+    _max?: NestedJsonNullableFilter<$PrismaModel>
   }
 
   export type BoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -11275,6 +11349,29 @@ export namespace Prisma {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
+  export type NestedJsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
 
   export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
@@ -11689,7 +11786,7 @@ export namespace Prisma {
   export type PageCreateWithoutWorkspaceInput = {
     id?: string
     title: string
-    content: string
+    content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: Date | string
     createdAt?: Date | string
     isSubPage: boolean
@@ -11699,7 +11796,7 @@ export namespace Prisma {
   export type PageUncheckedCreateWithoutWorkspaceInput = {
     id?: string
     title: string
-    content: string
+    content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: Date | string
     createdAt?: Date | string
     isSubPage: boolean
@@ -11787,7 +11884,7 @@ export namespace Prisma {
     NOT?: PageScalarWhereInput | PageScalarWhereInput[]
     id?: StringFilter<"Page"> | string
     title?: StringFilter<"Page"> | string
-    content?: StringFilter<"Page"> | string
+    content?: JsonNullableFilter<"Page">
     updatedAt?: DateTimeFilter<"Page"> | Date | string
     createdAt?: DateTimeFilter<"Page"> | Date | string
     isSubPage?: BoolFilter<"Page"> | boolean
@@ -12114,7 +12211,7 @@ export namespace Prisma {
   export type PageCreateManyWorkspaceInput = {
     id?: string
     title: string
-    content: string
+    content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: Date | string
     createdAt?: Date | string
     isSubPage: boolean
@@ -12148,7 +12245,7 @@ export namespace Prisma {
   export type PageUpdateWithoutWorkspaceInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
+    content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isSubPage?: BoolFieldUpdateOperationsInput | boolean
@@ -12158,7 +12255,7 @@ export namespace Prisma {
   export type PageUncheckedUpdateWithoutWorkspaceInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
+    content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isSubPage?: BoolFieldUpdateOperationsInput | boolean
@@ -12168,7 +12265,7 @@ export namespace Prisma {
   export type PageUncheckedUpdateManyWithoutWorkspaceInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
+    content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isSubPage?: BoolFieldUpdateOperationsInput | boolean

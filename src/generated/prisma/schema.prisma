@@ -81,7 +81,7 @@ model WorkspaceMember {
 model Page {
   id           String    @id @default(cuid())
   title        String
-  content      String
+  content      Json?
   updatedAt    DateTime  @updatedAt
   createdAt    DateTime  @default(now())
   isSubPage    Boolean
