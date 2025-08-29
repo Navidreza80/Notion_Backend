@@ -35,15 +35,15 @@ model Session {
 }
 
 model User {
-  id             String      @id
-  name           String?
-  email          String?     @unique
-  email_verified DateTime?
-  image          String?
-  Account        Account[]
-  Project        Project[]
-  Session        Session[]
-  Workspace      Workspace[]
+  id                     String            @id
+  name                   String?
+  email                  String?           @unique
+  email_verified         DateTime?
+  image                  String?
+  Account                Account[]
+  Session                Session[]
+  Workspace              Workspace[]
+  collaboratedWorkspaces WorkspaceMember[]
 }
 
 model VerificationToken {
@@ -55,23 +55,39 @@ model VerificationToken {
 }
 
 model Workspace {
-  id        String   @id @default(cuid())
+  id        String            @id @default(cuid())
   name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
   creatorId String
-  User      User     @relation(fields: [creatorId], references: [id], onDelete: Cascade)
+  User      User              @relation(fields: [creatorId], references: [id], onDelete: Cascade)
+  members   WorkspaceMember[]
+  pages     Page[]
 
   @@index([creatorId])
 }
 
-model Project {
-  id          String   @id @default(cuid())
-  name        String
-  description String?
-  createdAt   DateTime @default(now())
+model WorkspaceMember {
+  id          String        @id @default(cuid())
   userId      String
-  User        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  workspaceId String
+  workspace   Workspace     @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  role        WorkspaceRole
+  updatedAt   DateTime      @updatedAt
+  createdAt   DateTime      @default(now())
+}
+
+model Page {
+  id           String    @id @default(cuid())
+  title        String
+  content      String
+  updatedAt    DateTime  @updatedAt
+  createdAt    DateTime  @default(now())
+  isSubPage    Boolean
+  parentPageId String?
+  workspace    Workspace @relation(fields: [workspaceId], references: [id])
+  workspaceId  String
 }
 
 enum WorkspaceRole {

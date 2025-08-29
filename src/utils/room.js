@@ -1,0 +1,1 @@
+export const roomFor = (id) => `page:${id}`;

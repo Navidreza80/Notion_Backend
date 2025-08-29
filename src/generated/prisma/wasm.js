@@ -164,12 +164,24 @@ exports.Prisma.WorkspaceScalarFieldEnum = {
   creatorId: 'creatorId'
 };
 
-exports.Prisma.ProjectScalarFieldEnum = {
+exports.Prisma.WorkspaceMemberScalarFieldEnum = {
   id: 'id',
-  name: 'name',
-  description: 'description',
+  userId: 'userId',
+  workspaceId: 'workspaceId',
+  role: 'role',
+  updatedAt: 'updatedAt',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.PageScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  content: 'content',
+  updatedAt: 'updatedAt',
   createdAt: 'createdAt',
-  userId: 'userId'
+  isSubPage: 'isSubPage',
+  parentPageId: 'parentPageId',
+  workspaceId: 'workspaceId'
 };
 
 exports.Prisma.SortOrder = {
@@ -186,7 +198,10 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
-
+exports.WorkspaceRole = exports.$Enums.WorkspaceRole = {
+  MEMBER: 'MEMBER',
+  ADMIN: 'ADMIN'
+};
 
 exports.Prisma.ModelName = {
   Account: 'Account',
@@ -194,7 +209,8 @@ exports.Prisma.ModelName = {
   User: 'User',
   VerificationToken: 'VerificationToken',
   Workspace: 'Workspace',
-  Project: 'Project'
+  WorkspaceMember: 'WorkspaceMember',
+  Page: 'Page'
 };
 
 /**
