@@ -8077,7 +8077,6 @@ export namespace Prisma {
     title: string | null
     updatedAt: Date | null
     createdAt: Date | null
-    isSubPage: boolean | null
     parentPageId: string | null
     workspaceId: string | null
   }
@@ -8087,7 +8086,6 @@ export namespace Prisma {
     title: string | null
     updatedAt: Date | null
     createdAt: Date | null
-    isSubPage: boolean | null
     parentPageId: string | null
     workspaceId: string | null
   }
@@ -8098,7 +8096,6 @@ export namespace Prisma {
     content: number
     updatedAt: number
     createdAt: number
-    isSubPage: number
     parentPageId: number
     workspaceId: number
     _all: number
@@ -8110,7 +8107,6 @@ export namespace Prisma {
     title?: true
     updatedAt?: true
     createdAt?: true
-    isSubPage?: true
     parentPageId?: true
     workspaceId?: true
   }
@@ -8120,7 +8116,6 @@ export namespace Prisma {
     title?: true
     updatedAt?: true
     createdAt?: true
-    isSubPage?: true
     parentPageId?: true
     workspaceId?: true
   }
@@ -8131,7 +8126,6 @@ export namespace Prisma {
     content?: true
     updatedAt?: true
     createdAt?: true
-    isSubPage?: true
     parentPageId?: true
     workspaceId?: true
     _all?: true
@@ -8215,7 +8209,6 @@ export namespace Prisma {
     content: JsonValue | null
     updatedAt: Date
     createdAt: Date
-    isSubPage: boolean
     parentPageId: string | null
     workspaceId: string
     _count: PageCountAggregateOutputType | null
@@ -8243,7 +8236,6 @@ export namespace Prisma {
     content?: boolean
     updatedAt?: boolean
     createdAt?: boolean
-    isSubPage?: boolean
     parentPageId?: boolean
     workspaceId?: boolean
     workspace?: boolean | WorkspaceDefaultArgs<ExtArgs>
@@ -8255,7 +8247,6 @@ export namespace Prisma {
     content?: boolean
     updatedAt?: boolean
     createdAt?: boolean
-    isSubPage?: boolean
     parentPageId?: boolean
     workspaceId?: boolean
     workspace?: boolean | WorkspaceDefaultArgs<ExtArgs>
@@ -8267,7 +8258,6 @@ export namespace Prisma {
     content?: boolean
     updatedAt?: boolean
     createdAt?: boolean
-    isSubPage?: boolean
     parentPageId?: boolean
     workspaceId?: boolean
     workspace?: boolean | WorkspaceDefaultArgs<ExtArgs>
@@ -8279,12 +8269,11 @@ export namespace Prisma {
     content?: boolean
     updatedAt?: boolean
     createdAt?: boolean
-    isSubPage?: boolean
     parentPageId?: boolean
     workspaceId?: boolean
   }
 
-  export type PageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "content" | "updatedAt" | "createdAt" | "isSubPage" | "parentPageId" | "workspaceId", ExtArgs["result"]["page"]>
+  export type PageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "content" | "updatedAt" | "createdAt" | "parentPageId" | "workspaceId", ExtArgs["result"]["page"]>
   export type PageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     workspace?: boolean | WorkspaceDefaultArgs<ExtArgs>
   }
@@ -8306,7 +8295,6 @@ export namespace Prisma {
       content: Prisma.JsonValue | null
       updatedAt: Date
       createdAt: Date
-      isSubPage: boolean
       parentPageId: string | null
       workspaceId: string
     }, ExtArgs["result"]["page"]>
@@ -8738,7 +8726,6 @@ export namespace Prisma {
     readonly content: FieldRef<"Page", 'Json'>
     readonly updatedAt: FieldRef<"Page", 'DateTime'>
     readonly createdAt: FieldRef<"Page", 'DateTime'>
-    readonly isSubPage: FieldRef<"Page", 'Boolean'>
     readonly parentPageId: FieldRef<"Page", 'String'>
     readonly workspaceId: FieldRef<"Page", 'String'>
   }
@@ -9246,7 +9233,6 @@ export namespace Prisma {
     content: 'content',
     updatedAt: 'updatedAt',
     createdAt: 'createdAt',
-    isSubPage: 'isSubPage',
     parentPageId: 'parentPageId',
     workspaceId: 'workspaceId'
   };
@@ -9367,13 +9353,6 @@ export namespace Prisma {
    * Reference to a field of type 'QueryMode'
    */
   export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
-    
-
-
-  /**
-   * Reference to a field of type 'Boolean'
-   */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -9777,7 +9756,6 @@ export namespace Prisma {
     content?: JsonNullableFilter<"Page">
     updatedAt?: DateTimeFilter<"Page"> | Date | string
     createdAt?: DateTimeFilter<"Page"> | Date | string
-    isSubPage?: BoolFilter<"Page"> | boolean
     parentPageId?: StringNullableFilter<"Page"> | string | null
     workspaceId?: StringFilter<"Page"> | string
     workspace?: XOR<WorkspaceScalarRelationFilter, WorkspaceWhereInput>
@@ -9789,7 +9767,6 @@ export namespace Prisma {
     content?: SortOrderInput | SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
-    isSubPage?: SortOrder
     parentPageId?: SortOrderInput | SortOrder
     workspaceId?: SortOrder
     workspace?: WorkspaceOrderByWithRelationInput
@@ -9804,7 +9781,6 @@ export namespace Prisma {
     content?: JsonNullableFilter<"Page">
     updatedAt?: DateTimeFilter<"Page"> | Date | string
     createdAt?: DateTimeFilter<"Page"> | Date | string
-    isSubPage?: BoolFilter<"Page"> | boolean
     parentPageId?: StringNullableFilter<"Page"> | string | null
     workspaceId?: StringFilter<"Page"> | string
     workspace?: XOR<WorkspaceScalarRelationFilter, WorkspaceWhereInput>
@@ -9816,7 +9792,6 @@ export namespace Prisma {
     content?: SortOrderInput | SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
-    isSubPage?: SortOrder
     parentPageId?: SortOrderInput | SortOrder
     workspaceId?: SortOrder
     _count?: PageCountOrderByAggregateInput
@@ -9833,7 +9808,6 @@ export namespace Prisma {
     content?: JsonNullableWithAggregatesFilter<"Page">
     updatedAt?: DateTimeWithAggregatesFilter<"Page"> | Date | string
     createdAt?: DateTimeWithAggregatesFilter<"Page"> | Date | string
-    isSubPage?: BoolWithAggregatesFilter<"Page"> | boolean
     parentPageId?: StringNullableWithAggregatesFilter<"Page"> | string | null
     workspaceId?: StringWithAggregatesFilter<"Page"> | string
   }
@@ -10234,7 +10208,6 @@ export namespace Prisma {
     content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: Date | string
     createdAt?: Date | string
-    isSubPage: boolean
     parentPageId?: string | null
     workspace: WorkspaceCreateNestedOneWithoutPagesInput
   }
@@ -10245,7 +10218,6 @@ export namespace Prisma {
     content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: Date | string
     createdAt?: Date | string
-    isSubPage: boolean
     parentPageId?: string | null
     workspaceId: string
   }
@@ -10256,7 +10228,6 @@ export namespace Prisma {
     content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    isSubPage?: BoolFieldUpdateOperationsInput | boolean
     parentPageId?: NullableStringFieldUpdateOperationsInput | string | null
     workspace?: WorkspaceUpdateOneRequiredWithoutPagesNestedInput
   }
@@ -10267,7 +10238,6 @@ export namespace Prisma {
     content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    isSubPage?: BoolFieldUpdateOperationsInput | boolean
     parentPageId?: NullableStringFieldUpdateOperationsInput | string | null
     workspaceId?: StringFieldUpdateOperationsInput | string
   }
@@ -10278,7 +10248,6 @@ export namespace Prisma {
     content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: Date | string
     createdAt?: Date | string
-    isSubPage: boolean
     parentPageId?: string | null
     workspaceId: string
   }
@@ -10289,7 +10258,6 @@ export namespace Prisma {
     content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    isSubPage?: BoolFieldUpdateOperationsInput | boolean
     parentPageId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -10299,7 +10267,6 @@ export namespace Prisma {
     content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    isSubPage?: BoolFieldUpdateOperationsInput | boolean
     parentPageId?: NullableStringFieldUpdateOperationsInput | string | null
     workspaceId?: StringFieldUpdateOperationsInput | string
   }
@@ -10729,18 +10696,12 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
   export type PageCountOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
     content?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
-    isSubPage?: SortOrder
     parentPageId?: SortOrder
     workspaceId?: SortOrder
   }
@@ -10750,7 +10711,6 @@ export namespace Prisma {
     title?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
-    isSubPage?: SortOrder
     parentPageId?: SortOrder
     workspaceId?: SortOrder
   }
@@ -10760,7 +10720,6 @@ export namespace Prisma {
     title?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
-    isSubPage?: SortOrder
     parentPageId?: SortOrder
     workspaceId?: SortOrder
   }
@@ -10789,14 +10748,6 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedJsonNullableFilter<$PrismaModel>
     _max?: NestedJsonNullableFilter<$PrismaModel>
-  }
-
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type UserCreateNestedOneWithoutAccountInput = {
@@ -11155,10 +11106,6 @@ export namespace Prisma {
     connect?: WorkspaceWhereUniqueInput
   }
 
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
-  }
-
   export type WorkspaceUpdateOneRequiredWithoutPagesNestedInput = {
     create?: XOR<WorkspaceCreateWithoutPagesInput, WorkspaceUncheckedCreateWithoutPagesInput>
     connectOrCreate?: WorkspaceCreateOrConnectWithoutPagesInput
@@ -11344,11 +11291,6 @@ export namespace Prisma {
     _min?: NestedEnumWorkspaceRoleFilter<$PrismaModel>
     _max?: NestedEnumWorkspaceRoleFilter<$PrismaModel>
   }
-
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
   export type NestedJsonNullableFilter<$PrismaModel = never> =
     | PatchUndefined<
         Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
@@ -11371,14 +11313,6 @@ export namespace Prisma {
     gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-  }
-
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type UserCreateWithoutAccountInput = {
@@ -11789,7 +11723,6 @@ export namespace Prisma {
     content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: Date | string
     createdAt?: Date | string
-    isSubPage: boolean
     parentPageId?: string | null
   }
 
@@ -11799,7 +11732,6 @@ export namespace Prisma {
     content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: Date | string
     createdAt?: Date | string
-    isSubPage: boolean
     parentPageId?: string | null
   }
 
@@ -11887,7 +11819,6 @@ export namespace Prisma {
     content?: JsonNullableFilter<"Page">
     updatedAt?: DateTimeFilter<"Page"> | Date | string
     createdAt?: DateTimeFilter<"Page"> | Date | string
-    isSubPage?: BoolFilter<"Page"> | boolean
     parentPageId?: StringNullableFilter<"Page"> | string | null
     workspaceId?: StringFilter<"Page"> | string
   }
@@ -12214,7 +12145,6 @@ export namespace Prisma {
     content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: Date | string
     createdAt?: Date | string
-    isSubPage: boolean
     parentPageId?: string | null
   }
 
@@ -12248,7 +12178,6 @@ export namespace Prisma {
     content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    isSubPage?: BoolFieldUpdateOperationsInput | boolean
     parentPageId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -12258,7 +12187,6 @@ export namespace Prisma {
     content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    isSubPage?: BoolFieldUpdateOperationsInput | boolean
     parentPageId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -12268,7 +12196,6 @@ export namespace Prisma {
     content?: NullableJsonNullValueInput | InputJsonValue
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    isSubPage?: BoolFieldUpdateOperationsInput | boolean
     parentPageId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 

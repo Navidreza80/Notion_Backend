@@ -2,12 +2,11 @@ import * as pagesService from "../services/pagesService.js";
 
 export const createPage = async (req, reply) => {
   try {
-    const { title, content, isSubPage, workspaceId, parentPageId } = req.body;
+    const { title, content, workspaceId, parentPageId } = req.body;
 
     const project = await pagesService.createPage(req.server, {
       title,
       content,
-      isSubPage,
       workspaceId,
       parentPageId,
     });

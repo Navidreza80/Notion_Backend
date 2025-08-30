@@ -3,7 +3,7 @@ export const createPage = async (fastify, data) => {
 };
 
 export const getPages = async (fastify) => {
-  return fastify.prisma.page.findMany();
+  return fastify.prisma.page.findMany({ where: { parentPageId: null } });
 };
 
 export const getPageById = async (fastify, id) => {

@@ -84,7 +84,6 @@ model Page {
   content      Json?
   updatedAt    DateTime  @updatedAt
   createdAt    DateTime  @default(now())
-  isSubPage    Boolean
   parentPageId String?
   workspace    Workspace @relation(fields: [workspaceId], references: [id])
   workspaceId  String

@@ -179,7 +179,6 @@ exports.Prisma.PageScalarFieldEnum = {
   content: 'content',
   updatedAt: 'updatedAt',
   createdAt: 'createdAt',
-  isSubPage: 'isSubPage',
   parentPageId: 'parentPageId',
   workspaceId: 'workspaceId'
 };
