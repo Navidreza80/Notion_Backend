@@ -9,7 +9,7 @@ export const createPage = async (req, reply) => {
       content,
       isSubPage,
       workspaceId,
-      ...(parentPageId && parentPageId),
+      parentPageId,
     });
 
     return reply.code(201).send(project);
