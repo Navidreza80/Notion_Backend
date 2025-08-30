@@ -2,6 +2,7 @@ import {
   createPage,
   deletePage,
   getPageById,
+  getPageByParentId,
   getPages,
   updatePage,
 } from "../controllers/pagesController.js";
@@ -11,6 +12,7 @@ async function pagesRoutes(fastify) {
   fastify.post("/pages", { preHandler: authenticate }, createPage);
   fastify.get("/pages", { preHandler: authenticate }, getPages);
   fastify.get("/pages/:id", { preHandler: authenticate }, getPageById);
+  fastify.get("/sub-pages/:id", { preHandler: authenticate }, getPageByParentId);
   fastify.put("/pages/:id", { preHandler: authenticate }, updatePage);
   fastify.delete("/pages/:id", { preHandler: authenticate }, deletePage);
 }

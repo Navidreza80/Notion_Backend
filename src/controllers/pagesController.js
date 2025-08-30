@@ -43,6 +43,22 @@ export const getPageById = async (req, reply) => {
   }
 };
 
+export const getPageByParentId = async (req, reply) => {
+  try {
+    const { id } = req.params;
+    const project = await pagesService.getPageByParentId(req.server, id);
+
+    if (!project) {
+      return reply.code(404).send({ error: "Project not found" });
+    }
+
+    return reply.send(project);
+  } catch (error) {
+    console.error(error);
+    reply.code(500).send({ error: error.message });
+  }
+};
+
 export const updatePage = async (req, reply) => {
   try {
     const { id } = req.params;

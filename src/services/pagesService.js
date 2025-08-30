@@ -12,6 +12,12 @@ export const getPageById = async (fastify, id) => {
   });
 };
 
+export const getPageByParentId = async (fastify, parentPageId) => {
+  return fastify.prisma.page.findMany({
+    where: { parentPageId },
+  });
+};
+
 export const updatePage = async (fastify, id, data) => {
   return fastify.prisma.page.update({ where: { id }, data });
 };
