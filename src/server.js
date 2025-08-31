@@ -1,10 +1,11 @@
 import cors from "@fastify/cors";
 import Fastify from "fastify";
+import { Server as IOServer } from "socket.io";
 import prismaPlugin from "./plugins/prisma.js";
 import pagesRoutes from "./routes/pagesRoutes.js";
 import workspaceRoutes from "./routes/workspacesRoute.js";
 import initPageSocket from "./sockets/pagesSocket.js";
-import { Server as IOServer } from "socket.io";
+import initWhiteboardSocket from "./sockets/whiteboardSocket.js";
 
 const fastify = Fastify({ logger: true });
 await fastify.register(cors, { origin: true });
@@ -29,11 +30,11 @@ const start = async () => {
 
     // Initialize sockets
     initPageSocket(io, fastify);
+    initWhiteboardSocket(io, fastify);
 
     // Log info
     fastify.log.info(`Server running at http://localhost:${port}`);
   } catch (error) {
-
     // log error
     fastify.log.error(error);
 
