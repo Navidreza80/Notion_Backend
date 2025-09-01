@@ -6,7 +6,7 @@ export const createPage = async (req, reply) => {
 
     const project = await pagesService.createPage(req.server, {
       title,
-      ...content(content && { content }),
+      content,
       workspaceId,
       parentPageId,
     });
@@ -21,6 +21,15 @@ export const createPage = async (req, reply) => {
 export const getPages = async (req, reply) => {
   try {
     const projects = await pagesService.getPages(req.server);
+    reply.code(200).send(projects);
+  } catch (error) {
+    reply.code(500).send({ error: error.message });
+  }
+};
+
+export const getAllPages = async (req, reply) => {
+  try {
+    const projects = await pagesService.getAllPages(req.server);
     reply.code(200).send(projects);
   } catch (error) {
     reply.code(500).send({ error: error.message });
