@@ -6,7 +6,7 @@ export const createPage = async (req, reply) => {
 
     const project = await pagesService.createPage(req.server, {
       title,
-      content,
+      ...content(content && { content }),
       workspaceId,
       parentPageId,
     });
