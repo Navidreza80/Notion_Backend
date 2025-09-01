@@ -27,6 +27,15 @@ export const getPages = async (req, reply) => {
   }
 };
 
+export const getAllPages = async (req, reply) => {
+  try {
+    const projects = await pagesService.getAllPages(req.server);
+    reply.code(200).send(projects);
+  } catch (error) {
+    reply.code(500).send({ error: error.message });
+  }
+};
+
 export const getPageById = async (req, reply) => {
   try {
     const { id } = req.params;

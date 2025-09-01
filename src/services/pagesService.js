@@ -6,6 +6,10 @@ export const getPages = async (fastify) => {
   return fastify.prisma.page.findMany({ where: { parentPageId: null } });
 };
 
+export const getAllPages = async (fastify) => {
+  return fastify.prisma.page.findMany();
+};
+
 export const getPageById = async (fastify, id) => {
   return fastify.prisma.page.findUnique({
     where: { id },
